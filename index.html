@@ -7,6 +7,34 @@
 		<title>Weather App</title>
 	</head>
 	<body>
+		<div>
+			<main>
+				<i class="fa-solid fa-cloud"></i>
+				<div>
+					<p>17 °C</p>
+					<p><i class="fa-solid fa-location-dot"></i> Place</p>
+				</div>
+			</main>
+			<form action="/" id="form">
+				<div>
+					<input
+						type="text"
+						id="city"
+						placeholder="Search location..."
+						autocomplete="off"
+					/>
+					<button type="submit" id="button">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</div>
+				<span id="msg"></span>
+			</form>
+		</div>
+
+		<script
+			src="https://kit.fontawesome.com/dbaa0eaeaa.js"
+			crossorigin="anonymous"
+		></script>
 		<script src="main.js"></script>
 	</body>
 </html>
