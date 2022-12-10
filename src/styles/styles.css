@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+body {
+	height: 100vh;
+	width: 100%;
+	background-image: url(../img/white.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+body > div {
+	width: 100%;
+	height: 80%;
+	margin: 200px;
+	padding: 100px;
+	/*	background-color: rgba(0, 0, 0, 0.2); */
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(7.9px);
+	-webkit-backdrop-filter: blur(7.9px);
+}
+body > div > main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 20px;
+}
+body > div > main > i {
+	font-size: 180px;
+}
+body > div > main > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+body > div > main > div > p {
+	font-size: 50px;
+}
+body > div > main > div > p:first-child {
+	font-size: 80px;
+}
+body > div > form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+body > div > form > div {
+	display: flex;
+	justify-content: space-between;
+	width: 400px;
+	height: 30px;
+	border-bottom: 3px solid #000;
+}
+body > div > form > div > input {
+	height: 100%;
+	width: 100%;
+	background: none;
+	border: none;
+	outline: none;
+	font-size: 30px;
+}
+body > div > form > div > input::placeholder {
+	color: #000;
+}
+body > div > form > div > button {
+	height: 100%;
+	font-size: 20px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
