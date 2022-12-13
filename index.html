@@ -9,10 +9,13 @@
 	<body>
 		<div>
 			<main>
-				<i class="fa-solid fa-cloud"></i>
+				<img src="" id="img" />
 				<div>
-					<p>17 °C</p>
-					<p><i class="fa-solid fa-location-dot"></i> Place</p>
+					<p id="temp">17 °C</p>
+					<p>
+						<i class="fa-solid fa-location-dot"></i>
+						<span id="place">Place</span>
+					</p>
 				</div>
 			</main>
 			<form action="/" id="form">
@@ -29,6 +32,17 @@
 				</div>
 				<span id="msg"></span>
 			</form>
+			<div>
+				<p id="description">Clouds</p>
+				<div>
+					<p><i class="fa-solid fa-wind"></i> Wind Speed</p>
+					<p id="windSpeed">10 km/h</p>
+				</div>
+				<div>
+					<p><i class="fa-solid fa-droplet"></i> Humidity</p>
+					<p id="humidity">100%</p>
+				</div>
+			</div>
 		</div>
 
 		<script
