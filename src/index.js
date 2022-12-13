@@ -1,13 +1,26 @@
 import './styles/styles.css';
-import getWeatherData from './modules/fetch';
+import { getWeatherData, spanError } from './modules/fetch';
 
 const form = document.querySelector('#form');
 const input = document.querySelector('#city');
+const msg = document.querySelector('#msg');
+// data
+const temp = document.querySelector('#temp');
+const place = document.querySelector('#place');
+const description = document.querySelector('#description');
+const windSpeed = document.querySelector('#windSpeed');
+const humidity = document.querySelector('#humidity');
+const img = document.querySelector('#img');
 
 const getWeather = () => {
   const weatherData = getWeatherData(input.value).catch((err) => console.log(`ERROR: ${err}`));
   weatherData.then((cb) => {
-    console.log(cb);
+    temp.textContent = `${(cb.temp - 273.15).toFixed(2)} °C`;
+    place.textContent = cb.name;
+    description.textContent = cb.description;
+    windSpeed.textContent = `${(cb.windSpeed * 3.6).toFixed(2)} km/h`;
+    humidity.textContent = `${cb.humidity}%`;
+    img.src = `img/${cb.icon}.png`;
   });
 };
 const validate = () => {
@@ -20,8 +33,12 @@ const validate = () => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  validate();
-  //   getWeather();
+  if (validate()) {
+    getWeather();
+    msg.textContent = '';
+  } else {
+    spanError();
+  }
   input.value = '';
 });
 
