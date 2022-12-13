@@ -1,9 +1,11 @@
 import './styles/styles.css';
 import { getWeatherData, spanError } from './modules/fetch';
 
+const switchButton = document.querySelector('#switch');
 const form = document.querySelector('#form');
 const input = document.querySelector('#city');
 const msg = document.querySelector('#msg');
+let cont = 0;
 // data
 const temp = document.querySelector('#temp');
 const place = document.querySelector('#place');
@@ -12,13 +14,18 @@ const windSpeed = document.querySelector('#windSpeed');
 const humidity = document.querySelector('#humidity');
 const img = document.querySelector('#img');
 
-const getWeather = () => {
-  const weatherData = getWeatherData(input.value).catch((err) => console.log(`ERROR: ${err}`));
+const getWeather = (city) => {
+  const weatherData = getWeatherData(city).catch((err) => console.log(`ERROR: ${err}`));
   weatherData.then((cb) => {
-    temp.textContent = `${(cb.temp - 273.15).toFixed(2)} °C`;
+    if (cont === 0) {
+      temp.textContent = `${(cb.temp - 273.15).toFixed(2)} °C`;
+      windSpeed.textContent = `${(cb.windSpeed * 3.6).toFixed(2)} km/h`;
+    } else {
+      temp.textContent = `${((cb.temp - 273.15) * (9 / 5) + 32).toFixed(2)} °F`;
+      windSpeed.textContent = `${(cb.windSpeed * 2.237).toFixed(2)} mph`;
+    }
     place.textContent = cb.name;
     description.textContent = cb.description;
-    windSpeed.textContent = `${(cb.windSpeed * 3.6).toFixed(2)} km/h`;
     humidity.textContent = `${cb.humidity}%`;
     img.src = `img/${cb.icon}.png`;
   });
@@ -34,7 +41,7 @@ const validate = () => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (validate()) {
-    getWeather();
+    getWeather(input.value);
     msg.textContent = '';
   } else {
     spanError();
@@ -43,7 +50,16 @@ form.addEventListener('submit', (e) => {
 });
 
 window.addEventListener('load', () => {
-  input.value = 'London';
-  getWeather();
-  input.value = '';
+  getWeather('London');
+});
+switchButton.addEventListener('click', () => {
+  if (cont === 0) {
+    switchButton.textContent = 'Switch to °C';
+    cont = 1;
+    getWeather(place.textContent);
+  } else {
+    switchButton.textContent = 'Switch to °F';
+    cont = 0;
+    getWeather(place.textContent);
+  }
 });

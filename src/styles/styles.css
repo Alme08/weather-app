@@ -8,13 +8,30 @@
 body {
 	height: 100vh;
 	width: 100%;
-	background-image: url(../img/white.jpg);
+	background-image: url(../img/black.jpg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+body > button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 20px;
+	padding: 10px 20px;
+	font-size: 20px;
+	background: none;
+	border: 2px solid #fff;
+	border-radius: 10px;
+	color: #fff;
+	cursor: pointer;
+	transition: padding 0.1s ease;
+}
+body > button:hover {
+	padding: 10px 25px;
 }
 body > div {
 	/* width: 100%; */
