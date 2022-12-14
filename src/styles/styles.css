@@ -5,6 +5,7 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+
 body {
 	height: 100vh;
 	width: 100%;
@@ -124,4 +125,27 @@ body > div > div > div > p {
 }
 body > div > div > div > p > i {
 	font-size: 30px;
+}
+.loading {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 10;
+	padding: 0;
+	margin: 0;
+	background: rgb(27, 23, 47);
+	border-radius: 0px;
+	box-shadow: none;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 50px;
+	font-weight: bold;
+	color: #fff;
+}
+.display-none {
+	display: none;
 }

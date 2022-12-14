@@ -51,6 +51,8 @@ form.addEventListener('submit', (e) => {
 
 window.addEventListener('load', () => {
   getWeather('London');
+  const loadingScren = document.querySelector('.loading');
+  loadingScren.classList.add('display-none');
 });
 switchButton.addEventListener('click', () => {
   if (cont === 0) {
